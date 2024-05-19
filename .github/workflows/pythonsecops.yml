@@ -6,17 +6,17 @@ on:
   pull_request:
     branches: [ main ]
 
-#permissions:
- # contents: read
-  #security-events: write
+permissions:
+  contents: read
+  security-events: write
 
 jobs:
-  build:
-
+  codeql-analysis:
+    name: CodeQL Analysis
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check out repository
+    - name: Checkout repository
       uses: actions/checkout@v2
 
     - name: Set up Python
@@ -38,6 +38,8 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: python
+        # Additional options for customization
+        config-file: .github/codeql/codeql.yml
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
