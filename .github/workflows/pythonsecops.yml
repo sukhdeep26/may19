@@ -6,10 +6,6 @@ on:
   pull_request:
     branches: [ main ]
 
-permissions:
-  contents: read
-  security-events: write
-
 jobs:
   codeql-analysis:
     name: CodeQL Analysis
@@ -38,8 +34,6 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: python
-        # Additional options for customization
-        config-file: .github/codeql/codeql.yml
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
