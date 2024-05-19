@@ -17,10 +17,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
 
     - name: Set up Python
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v2
       with:
         python-version: '3.x'
 
@@ -35,11 +35,10 @@ jobs:
         pytest
 
   #  - name: Initialize CodeQL
-   #   uses: github/codeql-action/init@v2
+   #   uses: github/codeql-action/init@v1
     #  with:
      #   languages: python
 
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action@v3
-      with:
-        languages: python
+      uses: github/codeql-action@v1
+     
